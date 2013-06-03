@@ -8,4 +8,6 @@ class User {
 
     static constraints = {
     }
+
+    String toString(){ return "${login}"}
 }

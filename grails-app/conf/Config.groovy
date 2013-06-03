@@ -89,3 +89,30 @@ log4j = {
            'org.hibernate',
            'net.sf.ehcache.hibernate'
 }
+
+
+//log4j.logger.org.springframework.security='off,stdout'
+// Added by the Spring Security Core plugin:
+grails.plugins.springsecurity.userLookup.userDomainClassName = 'fr.dr.SecUser'
+grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'fr.dr.SecUserSecRole'
+grails.plugins.springsecurity.authority.className = 'fr.dr.SecRole'
+
+grails.plugins.springsecurity.securityConfigType = 'InterceptUrlMap'
+grails.plugins.springsecurity.interceptUrlMap = [
+        '/user/index':    ['ROLE_USER, ROLE_ADMIN, IS_AUTHENTICATED_FULLY'],
+        '/user/**':       ['ROLE_ADMIN'],
+        '/js/**':           ['IS_AUTHENTICATED_ANONYMOUSLY'],
+        '/css/**':          ['IS_AUTHENTICATED_ANONYMOUSLY'],
+        '/images/**':       ['IS_AUTHENTICATED_ANONYMOUSLY'],
+        '/*':               ['IS_AUTHENTICATED_FULLY'],
+        '/login/**':        ['IS_AUTHENTICATED_ANONYMOUSLY'],
+        '/logout/**':       ['IS_AUTHENTICATED_ANONYMOUSLY']
+
+]
+
+grails.plugins.springsecurity.password.algorithm='SHA-512'      //pw encryption algorithm
+grails.plugins.springsecurity.portMapper.httpPort = "8080"      //port map for http
+grails.plugins.springsecurity.portMapper.httpsPort = "8443"     //port map for https
+grails.plugins.springsecurity.rejectIfNoRule = true             //force authentication if no rule exists
+
+
