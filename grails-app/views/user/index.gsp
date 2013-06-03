@@ -1,5 +1,4 @@
 <@ page contentType="text/html;charset=UTF-8" >
-<@ page contentType="text/html;charset=UTF-8" >
 <html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
     <head>
         <meta name="layout" content="main"/>
@@ -11,16 +10,15 @@
                 <sec:ifLoggedIn>
                     <p>Your Logged in!</p>
                 </sec:ifLoggedIn>
+                <sec:ifAllGranted roles="ROLE_ADMIN">
                 <div class="row">
                     <header class="page-header">
-                        <h3>User <small class="lead">Address List</small></h3>
+                        <h3>User <small class="lead">Liste des utilisateurs</small></h3>
                     </header>
                     <div class="span3">
-                        <sec:ifAllGranted roles="ROLE_ADMIN">
-                        <g:link class="btn btn-block btn-link" action="create">
-                            Create New User
-                        </g:link>
-                        </sec:ifAllGranted>
+                            <g:link class="btn btn-block btn-link" action="create">
+                                Create New User
+                            </g:link>
                         <div class="well">
                             <ul class="nav nav-list">
                                 <li class="nav-header">People</li>
@@ -81,6 +79,7 @@
                         </div>
                     </g:each>
                     </div>
+                  </sec:ifAllGranted>
                 </div>
             </div>
         </section>

@@ -106,8 +106,8 @@ grails.plugins.springsecurity.interceptUrlMap = [
         '/images/**':       ['IS_AUTHENTICATED_ANONYMOUSLY'],
         '/*':               ['IS_AUTHENTICATED_FULLY'],
         '/login/**':        ['IS_AUTHENTICATED_ANONYMOUSLY'],
-        '/logout/**':       ['IS_AUTHENTICATED_ANONYMOUSLY']
-
+        '/logout/**':       ['IS_AUTHENTICATED_ANONYMOUSLY'],
+        '/*':                ['IS_AUTHENTICATED_ANONYMOUSLY'],
 ]
 
 grails.plugins.springsecurity.password.algorithm='SHA-512'      //pw encryption algorithm
