@@ -5,6 +5,7 @@ modules = {
 
     bootstrap {
         resource url:'less/custom-bootstrap.less',attrs:[rel: "stylesheet/less", type:'css']
+        resource url:'less/responsive.less',attrs:[rel: "stylesheet/less", type:'css']
         dependsOn 'jquery'
     }
 }
